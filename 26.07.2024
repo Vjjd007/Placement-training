@@ -1,0 +1,80 @@
+1)n = int(input())
+if n%2==1 :
+    print("Weird")
+elif n%2==0 and n>=2 and n<=5 :
+    print("Not Weird")
+elif n%2==0 and n>=6 and n<=20 :
+    print("Weird")
+else :
+    print("Not Weird")
+2)
+a = int(input())
+b = int(input())
+print(a // b)
+print(a / b)
+3)def is_leap(year):
+    # Check if the year is divisible by 400
+    if year % 400 == 0:
+        return True
+    # Check if the year is divisible by 100 but not by 400
+    elif year % 100 == 0:
+        return False
+    # Check if the year is divisible by 4 but not by 100
+    elif year % 4 == 0:
+        return True
+    # Otherwise, it is not a leap year
+    else:
+        return False
+year = int(input())
+print(is_leap(year))
+4)1)  print("Hello, World!")
+5)n = int(input())
+if n%2==1 :
+    print("Weird")
+elif n%2==0 and n>=2 and n<=5 :
+    print("Not Weird")
+elif n%2==0 and n>=6 and n<=20 :
+    print("Weird")
+else :
+    print("Not Weird")
+6)
+n = int(input())
+for i in range(n):
+    print(i ** 2)
+7)def find_second_lowest_grade_students(n, data):
+    students = []
+    for i in range(n):
+        name = data[2*i]
+        grade = float(data[2*i + 1])
+        students.append([name, grade])
+    unique_grades = sorted(set(student[1] for student in students))
+    if len(unique_grades) < 2:
+        return []  # If there are less than 2 unique grades, return an empty list
+    second_lowest_grade = unique_grades[1]
+    second_lowest_students = [student[0] for student in students if student[1] == second_lowest_grade]
+    second_lowest_students.sort()
+    return second_lowest_students
+if __name__ == "__main__":
+    import sys
+    input = sys.stdin.read().strip().split('\n')
+    n = int(input[0])
+    data = input[1:]
+    result = find_second_lowest_grade_students(n, data)
+    for name in result:
+        print(name)
+8)import sys
+input_value = sys.stdin.read().strip()
+n = int(input_value)
+result = ''.join(str(i) for i in range(1, n + 1))
+print(result)
+9)def find_runner_up(n, scores):
+    unique_scores = set(scores)
+    sorted_scores = sorted(unique_scores)
+    return sorted_scores[-2]
+if __name__ == "__main__":
+    import sys
+    input = sys.stdin.read().strip().split()
+    n = int(input[0])
+    scores = list(map(int, input[1:]))
+    runner_up = find_runner_up(n, scores)
+    print(runner_up)
