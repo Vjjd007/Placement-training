@@ -1,0 +1,105 @@
+1)if __name__ == '__main__':
+    n = int(input())
+    student_marks = {}
+    for _ in range(n):
+        line = input().split()
+        name = line[0]
+        scores = list(map(float, line[1:]))
+        student_marks[name] = scores
+    query_name = input()
+    average_marks = sum(student_marks[query_name]) / len(student_marks[query_name])
+    print(f"{average_marks:.2f}")
+2)if __name__ == '__main__':
+    n = int(input())
+    A = set(map(int, input().split()))
+    m = int(input())
+    for _ in range(m):
+        operation, _ = input().split()
+        other_set = set(map(int, input().split()))
+        if operation == "intersection_update":
+            A.intersection_update(other_set)
+        elif operation == "update":
+            A.update(other_set)
+        elif operation == "symmetric_difference_update":
+            A.symmetric_difference_update(other_set)
+        elif operation == "difference_update":
+            A.difference_update(other_set)
+    print(sum(A))
+3)if __name__ == '__main__':
+    k = int(input())
+    room_numbers = list(map(int, input().split()))
+
+    unique_rooms = set(room_numbers)
+    
+    sum_of_unique_rooms = sum(unique_rooms)
+    sum_of_all_rooms = sum(room_numbers)
+    
+    captain_room = (k * sum_of_unique_rooms - sum_of_all_rooms) // (k - 1)
+    
+    print(captain_room)
+4)if __name__ == '__main__':
+    T = int(input())
+    results = []
+    
+    for _ in range(T):
+        nA = int(input())
+        A = set(map(int, input().split()))
+        nB = int(input())
+        B = set(map(int, input().split()))
+        
+        results.append(A.issubset(B))
+    
+    for result in results:
+        print(result)
+5)A = set(map(int, input().split()))
+N = int(input())
+
+is_strict_superset = True
+
+for _ in range(N):
+    B = set(map(int, input().split()))
+    if not (A > B):  # Check if A is a strict superset of B
+        is_strict_superset = False
+        break
+
+print(is_strict_superset)
+6)n = int(input())
+numbers = list(map(int, input().split()))
+print(all(num > 0 for num in numbers) and any(str(num) == str(num)[::-1] for num in numbers))
+7)s = input()
+
+sorted_s = ''.join(sorted(s, key=lambda x: (x.isdigit() - x.islower(), x in '02468', x)))
+print(sorted_s)
+8)from collections import defaultdict
+n, m = map(int, input().split())
+group_a = defaultdict(list)
+for i in range(1, n + 1):
+    word = input().strip()
+    group_a[word].append(i)
+for _ in range(m):
+    word = input().strip()
+    if word in group_a:
+        print(' '.join(map(str, group_a[word])))
+    else:
+        print(-1)
+9)from collections import namedtuple
+n = int(input())
+columns = input().split()
+Student = namedtuple('Student', columns)
+total_marks = sum(int(Student(*input().split()).MARKS) for _ in range(n))
+print(f"{total_marks / n:.2f}")
+10)from collections import OrderedDict
+n = int(input())
+ordered_items = OrderedDict()
+for _ in range(n):
+    item, price = input().rsplit(maxsplit=1)
+    price = int(price)
+    if item in ordered_items:
+        ordered_items[item] += price
+    else:
+        ordered_items[item] = price
+for item, net_price in ordered_items.items():
+    print(item, net_price)
+
+
+
